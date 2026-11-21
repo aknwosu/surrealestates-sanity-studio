@@ -28,7 +28,7 @@ The Studio navigation currently includes:
 - **Services** — service names, summaries, scope, display order, visibility, and SEO metadata.
 - **Projects** — project details, images, related services, display order, visibility, and SEO metadata.
 - **Testimonials** — client quotes and optional project references.
-- **Site settings** — business details, default description and social image, logo, and social profile links.
+- **Site settings** — business details, default description and social image, logo, Joshua's homepage portrait, and social profile links.
 
 Additional registered schemas include FAQs, service areas, SEO metadata, and calls to action. Not all of these currently have a navigation entry or a connected page on the website.
 
@@ -36,11 +36,13 @@ Additional registered schemas include FAQs, service areas, SEO metadata, and cal
 
 The website's Sanity client is in `../web/src/lib/sanity.ts`. It uses the same project ID and production dataset and reads published documents.
 
+- The website's fixed service pages and their optimized copy come from `../web/src/data/services.ts`. Matching Sanity service documents act as relationship targets only; they do not replace service copy or add new website services.
+- Projects reference a Sanity service document to appear on the matching existing website service page. The reference document's slug must match the website service slug.
 - Published projects can appear on the home page and portfolio. Each published project with a slug and cover image also has a project detail page.
 - Project SEO fields control that detail page's title, description, social image, and indexing setting.
-- Service SEO fields can override metadata when the service slug matches a website service page slug.
+- Service SEO fields are not currently used by the fixed service pages.
 - Site settings can provide the website's default meta description and social sharing image.
-- Most service page copy is still maintained in `../web/src/`; editing a service document does not currently replace that page's body copy.
+- Paid campaign pages such as `/bathroom-renovation` are maintained in `../web/src/`. The `/services/{slug}` pages use the fixed local service copy and pull in related published Sanity projects by reference.
 
 ## Build and deploy the Studio
 
