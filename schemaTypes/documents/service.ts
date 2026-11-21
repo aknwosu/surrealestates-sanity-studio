@@ -28,7 +28,7 @@ export const service = defineType({
     defineField({name: 'coverImage', title: 'Cover image', type: 'image', options: {hotspot: true}}),
     defineField({name: 'order', title: 'Display order', type: 'number', initialValue: 0, validation: (rule) => rule.integer().min(0)}),
     defineField({name: 'isActive', title: 'Show on website', type: 'boolean', initialValue: true}),
-    defineField({name: 'seo', title: 'SEO', type: 'seo'}),
+    defineField({name: 'seo', title: 'SEO', description: 'Overrides metadata on the website page with the same slug.', type: 'seo'}),
   ],
   preview: {select: {title: 'title', subtitle: 'summary', media: 'coverImage'}},
 })

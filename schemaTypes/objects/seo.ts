@@ -14,5 +14,6 @@ export const seo = defineType({
       validation: (rule) => rule.max(160),
     }),
     defineField({name: 'image', title: 'Social sharing image', type: 'image', options: {hotspot: true}}),
+    defineField({name: 'noIndex', title: 'Hide this page from search engines', type: 'boolean', initialValue: false}),
   ],
 })
